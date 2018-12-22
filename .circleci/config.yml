@@ -113,26 +113,26 @@ jobs:
       - store_artifacts:
           path: ~/repo/services/artifacts
 
-  #----------------------------------------#
-  #-- UNIT TESTING FOR DARTLANG BRANCHES --#
-  #----------------------------------------#
-    unit_test_dart:
-      docker:
-        # Primary docker image containing golang
-        - image: google/dart:2.1
+#----------------------------------------#
+#-- UNIT TESTING FOR DARTLANG BRANCHES --#
+#----------------------------------------#
+  unit_test_dart:
+    docker:
+      # Primary docker image containing golang
+      - image: google/dart:2.1
 
-      working_directory: ~/repo
+    working_directory: ~/repo
 
-      steps:
+    steps:
 
-        # Get repository from VCS
-        - checkout
+      # Get repository from VCS
+      - checkout
 
-        # Run test suite script
-        - run: ./services/config/test-dart.sh
-        # Store testing artifacts
-        - store_artifacts:
-            path: ~/repo/services/artifacts
+      # Run test suite script
+      - run: ./services/config/test-dart.sh
+      # Store testing artifacts
+      - store_artifacts:
+          path: ~/repo/services/artifacts
 
 workflows:
   version: 2
