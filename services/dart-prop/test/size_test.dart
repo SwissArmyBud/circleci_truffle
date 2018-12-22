@@ -1,5 +1,5 @@
 import "package:test/test.dart";
-import "../lib/size/size.dart" as sizing;
+import "../lib/size/size.dart" as sizer;
 
 class TestRig {
   int _in;
@@ -22,11 +22,11 @@ main() {
     print("Testing suite setup finished...");
   });
 
-  for (var testCase in tests) {
-    test("Validate sizing library against TestRig", () {
-      expect(testCase._out, equals(sizing.Size(testCase._in)));
-    });
-  }
+  test("Validate sizing library against TestRig", () {
+    for (var testCase in tests) {
+      expect(testCase._out, equals(sizer.Size(testCase._in)));
+    }
+  });
 
   tearDown(() async {
     // Do async cleanup stuffs
