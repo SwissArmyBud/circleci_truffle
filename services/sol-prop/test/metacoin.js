@@ -4,9 +4,9 @@ var CREATION_BOUNTY = 10000;
 var CREDIT_VALUE = 1000;
 
 contract("New MetaCoin", function (accounts) {
-	
+
 	var testing;
-	
+
 	it("should exist in passthrough", function () {
 		console.log();
 
@@ -36,7 +36,7 @@ contract("New MetaCoin", function (accounts) {
 				// Meta exists
 				assert.notEqual(meta.address, undefined, "Meta has no address");
 				// Meta ok
-				assert.notEqual(meta.address, 0, "Meta has no address");
+				assert.equal(meta.address, 0, "Meta has no address");
 				// USED IN NEXT TEST
 				testing = meta;
 			});
@@ -62,7 +62,7 @@ contract("New MetaCoin", function (accounts) {
 
 		// Hold onto instance once initialized
 		var meta;
-		
+
 		// Balance should follow pattern
 		return MetaCoin.new().
 			then(function (instance) {
@@ -83,7 +83,7 @@ contract("New MetaCoin", function (accounts) {
 		// Hold onto instance once initialized
 		var meta;
 		var account;
-		
+
 		// New coin - 1
 		account = accounts[1];
 		return MetaCoin.new({from:account}).
@@ -129,7 +129,7 @@ contract("New MetaCoin", function (accounts) {
 
 			console.log("    - " + account_one_balance);
 			console.log("    - " + account_two_balance);
-			
+
 			assert.equal(account_one_balance, (CREATION_BOUNTY - CREDIT_VALUE), "Account 1 isn't what is expected");
 			assert.equal(account_two_balance, CREDIT_VALUE , "Account 2 isn't what is expected");
 		});
@@ -170,7 +170,7 @@ contract("New MetaCoin", function (accounts) {
 
 		// Hold onto instance once initialized
 		var meta;
-		
+
 		// Balance should follow pattern
 		return MetaCoin.new().
 			then(function (instance) {
