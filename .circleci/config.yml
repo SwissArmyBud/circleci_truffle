@@ -28,26 +28,21 @@ jobs:
     steps:
 
       # Install global node modules as sudo
-      - run: sudo npm i -g truffle
+      - run: sudo npm i -g truffle --allow-root
+      - run: which truffle
+      - run: truffle version
+      - run: node --version
+      - run: npm --version
 
       # Grab the repo
       - checkout
 
-      # Get/cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
       # Install/update dependencies as needed
       - run: npm i
-
-      # Set/save cache
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+      - run: which truffle
+      - run: truffle version
+      - run: node --version
+      - run: npm --version 
 
       # Run tests via "test" script in package.json
       - run: npm run unit_test_sol

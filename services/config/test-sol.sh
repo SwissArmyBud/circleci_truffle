@@ -17,7 +17,10 @@ for SOLTEST in $TESTS ; do
   cd ./services/$SOLTEST
   # Run tests and tee output to results artifact
   truffle test | tee $BASE"/services/artifacts/"$SOLTEST"_results.out"
+  which truffle
   truffle version
+  node --version
+  npm --version 
   echo "Test Results: "$?
   # Clear out scaffolding files from test directory
   rm $BASE/services/$SOLTEST/package.json
