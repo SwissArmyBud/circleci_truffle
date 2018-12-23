@@ -37,13 +37,6 @@ jobs:
       # Grab the repo
       - checkout
 
-      # Install/update dependencies as needed
-      - run: npm i
-      - run: which truffle
-      - run: truffle version
-      - run: node --version
-      - run: npm --version 
-
       # Run tests via "test" script in package.json
       - run: npm run unit_test_sol
       # Store testing artifacts
