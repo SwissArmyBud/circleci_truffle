@@ -36,7 +36,7 @@ contract("New MetaCoin", function (accounts) {
 				// Meta exists
 				assert.notEqual(meta.address, undefined, "Meta has no address");
 				// Meta ok
-				assert.equal(meta.address, 0, "Meta has no address");
+				assert.notEqual(meta.address, 0, "Meta has no address");
 				// USED IN NEXT TEST
 				testing = meta;
 			});
