@@ -17,7 +17,7 @@ for SOLTEST in $TESTS ; do
   cd ./services/$SOLTEST
   npm i
   # Run tests and tee output to results artifact
-  truffle test | tee $BASE"/services/artifacts/"$SOLTEST"_results.out"
+  ./node_modules/.bin/truffle test | tee $BASE"/services/artifacts/"$SOLTEST"_results.out"
   which truffle
   truffle version
   node --version
