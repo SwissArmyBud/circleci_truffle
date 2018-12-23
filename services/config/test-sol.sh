@@ -20,7 +20,12 @@ for SOLTEST in $TESTS ; do
   npm i
   # Run tests and tee output to results artifact
   ./node_modules/.bin/truffle test | tee $BASE"/services/artifacts/"$SOLTEST"_results.out"
-  echo "Test Results: "$?
+  EXIT=$?
+  if [ $EXIT -gt 0 ]
+    then
+    echo "TEST FAILED - EXITING SUITE"
+    EXIT $EXIT
+  fi
   # Clear out scaffolding files from test directory
   rm $BASE/services/$SOLTEST/package.json
   rm $BASE/services/$SOLTEST/truffle.js
