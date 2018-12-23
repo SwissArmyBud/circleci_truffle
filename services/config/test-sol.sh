@@ -7,7 +7,7 @@ TESTS=$(ls $BASE/services/ | grep sol-)
 
 mkdir $BASE/services/artifacts
 
-pipefail -oe
+set -o pipefail
 
 # For each test directory
 for SOLTEST in $TESTS ; do
