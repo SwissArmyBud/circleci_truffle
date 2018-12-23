@@ -128,11 +128,23 @@ jobs:
       # Get repository from VCS
       - checkout
 
+      # Get/cache dependencies
+      - restore_cache:
+          keys:
+          # Restore system package cache
+          - v1-dependencies-dart
+
       # Run test suite script
       - run: ./services/config/test-dart.sh
       # Store testing artifacts
       - store_artifacts:
           path: ~/repo/services/artifacts
+
+      # Set/save cache
+      - save_cache:
+          paths:
+            - ~/.pub-cache
+          key: v1-dependencies-dart
 
 workflows:
   version: 2
