@@ -7,6 +7,8 @@ TESTS=$(ls $BASE/services/ | grep sol-)
 
 mkdir $BASE/services/artifacts
 
+set -e
+
 # For each test directory
 for SOLTEST in $TESTS ; do
   # Move a fake package.json to the test directory to satisfy truffle
