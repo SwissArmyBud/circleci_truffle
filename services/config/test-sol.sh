@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Grab working directory
 BASE=$(pwd)
@@ -7,7 +7,7 @@ TESTS=$(ls $BASE/services/ | grep sol-)
 
 mkdir $BASE/services/artifacts
 
-set -e
+pipefail -oe
 
 # For each test directory
 for SOLTEST in $TESTS ; do
@@ -20,10 +20,6 @@ for SOLTEST in $TESTS ; do
   npm i
   # Run tests and tee output to results artifact
   ./node_modules/.bin/truffle test | tee $BASE"/services/artifacts/"$SOLTEST"_results.out"
-  which truffle
-  truffle version
-  node --version
-  npm --version
   echo "Test Results: "$?
   # Clear out scaffolding files from test directory
   rm $BASE/services/$SOLTEST/package.json
