@@ -28,11 +28,8 @@ jobs:
     steps:
 
       # Install global node modules as sudo
-      - run: sudo npm i -g truffle --allow-root
-      - run: which truffle
-      - run: truffle version
-      - run: node --version
-      - run: npm --version
+      # !! DISABLED UNTIL CONTRACT UPGRADE TO TRUFFLE 5.0 AND SOLC 0.5 !!
+      #- run: sudo npm i -g truffle --allow-root
 
       # Grab the repo
       - checkout
