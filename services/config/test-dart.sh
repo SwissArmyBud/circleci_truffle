@@ -17,6 +17,14 @@ set -o pipefail
 
 # For each test directory
 for DARTTEST in $TESTS ; do
+  echo "Running tests for service: $DARTTEST"
+  if [ -e $DARTLANG_CI_TEST_FILTER ] then
+    for DARTPROJ in $DARTLANG_CI_TEST_FILTER ; do
+      if [ $DARTTEST == $DARTPROJ ] then
+        echo "Found $DARTTEST as $DARTPROJ in \$DARTLANG_CI_TEST_FILTER"
+      fi
+    done
+  fi
   # Move into test directory
   cd $BASE/services/$DARTTEST
   source ./CIparams.sh
