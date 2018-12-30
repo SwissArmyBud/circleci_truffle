@@ -11,7 +11,7 @@ class TestRig {
 }
 
 var tests = [
-    TestRig(-1, "negative"),
+    TestRig(1, "negative"),
     TestRig(5, "small"),
 ];
 

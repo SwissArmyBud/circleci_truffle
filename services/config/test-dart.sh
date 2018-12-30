@@ -19,7 +19,7 @@ set -o pipefail
 for DARTTEST in $TESTS ; do
   # Move into test directory
   cd $BASE/services/$DARTTEST
-  source ./parameters.sh
+  source ./CIparams.sh
   # Get dependencies
   pub get
   # Run tests and tee output to report
