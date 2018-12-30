@@ -1,3 +1,4 @@
+library test_size_lib;
 
 String Size(int a) {
   String str = "";
