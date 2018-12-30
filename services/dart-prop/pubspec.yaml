@@ -1,3 +1,10 @@
-name: "testing_prop"
+name: dart_prop
+description: A scaffold for Dartlang CI
+version: 0.0.1
+
 dependencies:
-  test:
+
+dev_dependencies:
+  build_runner: any
+  build_test: any
+  test: any

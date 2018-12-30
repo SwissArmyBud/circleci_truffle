@@ -1,5 +1,5 @@
-import "../lib/size/size.dart" as sizing;
+import "package:dart_prop/libexport.dart" as libs;
 
 main(){
-  print(sizing.Size(5));
+  print(libs.Size(5));
 }

@@ -1,5 +1,5 @@
 import "package:test/test.dart";
-import "../lib/size/size.dart" as sizer;
+import 'package:dart_prop/libexport.dart' as libs;
 
 class TestRig {
   int _in;
@@ -24,7 +24,7 @@ main() {
 
   test("Validate sizing library against TestRig", () {
     for (var testCase in tests) {
-      expect(testCase._out, equals(sizer.Size(testCase._in)));
+      expect(testCase._out, equals(libs.Size(testCase._in)));
     }
   });
 
