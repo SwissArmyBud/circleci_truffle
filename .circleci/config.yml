@@ -119,7 +119,7 @@ jobs:
   unit_test_dart:
     docker:
       # Primary docker image containing nodejs and bundled browsers
-      - image: swissarmybud/dart:2.1
+      - image: swissarmybud/dart:2.1-browsers
 
     working_directory: ~/repo
 
