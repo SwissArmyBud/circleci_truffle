@@ -119,22 +119,11 @@ jobs:
   unit_test_dart:
     docker:
       # Primary docker image containing nodejs and bundled browsers
-      - image: circleci/node:10.14.2-browsers # Latest LTS
+      - image: swissarmybud/dart:2.1
 
     working_directory: ~/repo
 
     steps:
-
-      - run:
-          name: Install Dartlang
-          command: |
-            export DEBIAN_FRONTEND=noninteractive
-            sudo apt-get -y install apt-transport-https
-            sudo sh -c 'curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -'
-            sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
-            sudo apt-get update
-            sudo apt-get -y install dart 2.1
-
       # Get repository from VCS
       - checkout
 
