@@ -47,7 +47,8 @@ for SERVICE in $SERVICES ; do
   cd $BASE/services/$SERVICE
 
   # Run pre-ci scripting for project dependant vars, etc
-  echo "\n\n"
+  echo
+  echo
   echo "[INFO] -> Running prerunCI source for project: $SERVICE"
   source "./CI/prerunCI.sh"
 
